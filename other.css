@@ -1,0 +1,104 @@
+#about img{
+    width: 50%;
+    margin-top: 60px;
+    
+}
+#about {
+    display: flex;
+  }
+  .about{
+    background-color: #b4c8f5;
+  }
+  .OMA{
+    border-radius: 3px;
+    background-color: #0e0149;
+  margin-top: 0px;
+border-bottom: 4px white;
+border-bottom: 4px #fff;
+border-radius: 3px;
+height: auto ;
+padding: 40px 0;
+
+  }
+.about h4{
+    color: white;
+    font-size: 3rem;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+}
+
+.about .p1{
+    margin-top: 70px;
+    max-width: 80%;
+    line-height: 33px;
+    margin-left: 30px;
+    font-family: sans-serif;
+    font-size: 18px;
+    color: #020008;
+    font-weight: 100;
+}
+
+.aboutContent{
+    display: grid;
+ align-items: center; 
+ grid-template-columns: 2fr 1fr;
+ column-gap: 5px;
+}
+.aboutContent img{
+    max-width: 80%;
+  max-height:100%;
+  justify-self: end;
+}
+.aboutInfo {
+  display: flex;
+  justify-content: space-around; /* Add space between the containers */
+  flex-wrap: wrap; /* Allow containers to wrap to the next line */
+  flex-direction: row; /* Display containers side by side */
+  margin-top: 100px;
+}
+
+.about .aboutInfo1 {
+  border-radius: 30px;
+  background-color: white;
+  border-radius: 20px;
+  color: #09012e;
+  height: auto;
+  padding: 80px 20px; /* Adjust padding as needed */
+  display: flex;
+  flex-direction: column; /* Stack elements vertically */
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  margin-top: 20px; /* Adjust space between containers */
+  max-width: 600px; /* Adjust max-width as needed */
+}
+
+.aboutInfo h1 {
+  margin-top: 10px;
+}
+.aboutInfo img{
+  width: 50%;
+}
+.aboutInfo p {
+  margin-top: 30px;
+  font-size: 15px;
+  line-height: 30px;
+}
+
+
+@media only screen and (max-width: 800px){
+    .aboutContent{
+        grid-template-columns: 1fr;
+    }
+    .aboutContent img{
+        max-width: 50%;
+        justify-self:center
+    }
+}
+@media only screen and (max-width: 600px){
+    .aboutContent .p1{
+        font-size: 15px;
+    }
+}
