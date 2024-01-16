@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="forms.css">
+    <title>Reciter Enrollment Form</title>
+</head>
+<body>
+    <form id="studentForm" action="process-form.php" method="post">
+        <h1>Student Enrollment Form for the Lagos OMA Diction Awards</h1>
+
+        <label for="firstName">First Name of Pupil:</label>
+        <input type="text" id="firstName" name="firstName" required>
+
+        <label for="middleName">Middle Name of Pupil:</label>
+        <input type="text" id="middleName" name="middleName" required>
+
+        <label for="surname">Surname of Pupil:</label>
+        <input type="text" id="surname" name="surname" required>
+
+        <label for="gradeClass">Grade/Class (3 to 6):</label>
+        <input type="number" id="gradeClass" name="gradeClass" min="3" max="6" required>
+
+        <label for="age">Age:</label>
+        <input type="number" id="age" name="age" required>
+
+        <label for="gender">Gender:</label>
+        <select id="gender" name="gender" required>
+          <option value="male">Male</option>
+          <option value="female">Female</option>
+          <!-- Add more options if needed -->
+        </select>
+
+        <label for="parentWhatsapp">Guardian/Parent WhatsApp Phone No:</label>
+        <input type="text" id="parentWhatsapp" name="parentWhatsapp" required>
+
+        <h2>School Details</h2>
+
+        <label for="schoolName">Name of School:</label>
+        <input type="text" id="schoolName" name="schoolName" required>
+
+        <label for="schoolAddress">Address:</label>
+        <input type="text" id="schoolAddress" name="schoolAddress" required>
+
+        <label for="schoolWhatsapp">School WhatsApp Phone No:</label>
+        <input type="text" id="schoolWhatsapp" name="schoolWhatsapp" required>
+
+        <h2>Poetry Recitation Details</h2>
+        <h3>Poetry Recitation List: (Choose one)</h3>
+        <h4>1. The vultures - David Diop</h4>
+        <h4>2. Abiku - JP Clark</h4>
+        <h4>3. The Chaos - Gerade Nolst Trinite</h4>
+        <h4>4. Yesterday - Godswill Effiong Samuel</h4>
+        <h4>5. Butterfly - Godswill Effiong Samuel</h4>
+        <h4>6. Home - Godswill Effiong Samuel</h4>
+        <h4>7. Evergreen - Godswill Effiong Samuel</h4>
+        <h4>8. Air - Abiola Matthew Olagunju</h4>
+
+        <label for="poetryRecitationChoice">Poetry Recitation Choice:</label>
+        <input type="text" id="poetryRecitationChoice" name="poetryRecitationChoice" required>
+
+        <label for="authorOfRecitation">Author Of Poetry Recitation Choice:</label>
+        <input type="text" id="authorOfRecitation" name="authorOfRecitation" required>
+
+        <h2>Pronouncer's Details</h2>
+
+        <label for="pronouncerRelease">I release to attend the 2024 OMA DICTION AWARDS COMPETITION</label>
+        <input type="text" id="pronouncerRelease" name="pronouncerRelease" required>
+
+        <label for="pronouncerSign">Sign:</label>
+        <input type="text" id="pronouncerSign" name="pronouncerSign" required>
+
+        <label for="attendanceDate">Date:</label>
+        <input type="date" id="attendanceDate" name="attendanceDate" required>
+
+        <h4>PLEASE NOTE THAT THIS EVENT WILL BE BROADCAST LIVE ON TV, ONLINE, ON DICTION ORACLE YOUTUBE CHANNEL.</h4>
+
+        <div class="button-container">
+            <button type="submit">Submit</button>
+        </div>
+    </form>
+</body>
+</html>
