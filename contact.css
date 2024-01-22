@@ -11,7 +11,7 @@
     flex-direction: column; /* Stack elements vertically */
     justify-content: center;
     text-align: center;
-    font-family: 'proxima-nova', sans-serif;
+    font-family: cursive;
     align-items: center;
 }
 .contact-text button{
@@ -20,7 +20,7 @@
     font-weight: 600;
     font-size: 15px;
     color: #09012e;
-    font-family:Georgia, 'Times New Roman', Times, serif;
+    font-family:cursive;
 }
 .contact-text .fa-envelope{
     font-size: 25px;
@@ -31,7 +31,7 @@
     color: #fff;
     margin-bottom: 10px; /* Add spacing between h4 and h5 */
     font-weight: 100;
-    font-family: 'proxima-nova', sans-serif;
+    font-family: cursive;
 }
 
 .contact-text h5 {
@@ -39,7 +39,7 @@
     color: #fff;
     max-width: 700px; /* Adjust max-width as needed */
     font-weight: 100;
-    font-family: 'proxima-nova', sans-serif;
+    font-family: cursive;
 }
 
 
@@ -99,7 +99,7 @@ option {
     display: block;
     margin-bottom: 5px;
     color: #333; /* Dark label color */
-    font-family: 'Lato', sans-serif;
+    font-family: cursive;
     font-size: 18px;
 }
 .closing-text{
@@ -117,5 +117,8 @@ option {
     align-items: center;
     color: #fff;
     font-size: 20px;
-    font-family: 'proxima-nova', sans-serif;
+    font-family: cursive;
+}
+.closing-text h5{
+    font-family: cursive;
 }
