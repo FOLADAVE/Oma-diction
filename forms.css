@@ -1,22 +1,38 @@
 body {
-    font-family: Georgia, 'Times New Roman', Times, serif;
-    background-color: #28282B;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 100vh;
-  }
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  background-color: #28282B;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+.container {
+  background-color: #fff;
+  padding: 40px;
+  border-radius: 8px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  margin-top: 40px;
+  width: 400px;
+}
+
+.container p {
+  margin-bottom: 10px; /* Add some margin between the paragraph and the form */
+  font-size: 20px;
+  text-align: center;
+  font-weight: 800;
   
-  form {
-    background-color: #fff;
-    padding: 40px;
-    border-radius: 8px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-    margin-top: 40px;
-    width: 400px;
-  }
+}
+.container .last{
+  margin-bottom: 50px;
+}
+.container .account{
+  padding-bottom: 0px;
+  padding-top: 0px;
+}
+  
   h1{
     display: flex;
     text-align: center;
@@ -32,7 +48,9 @@ body {
     margin-bottom: 8px;
     color: #555;
   }
-  
+  .AR{
+    color: #555;
+  }
   input,
   select {
     width: 100%;

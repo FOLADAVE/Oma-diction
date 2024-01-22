@@ -4,12 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="forms.css">
-    <link rel="icon" href="rel-icon.png">
-    <title>Pronouncer's Enrollment Form</title>
+    <link rel="icon" href="Screenshot_20231114_104326_Gallery-removebg.png">
+    <title>Mispronounced Enrollment Form</title>
 </head>
 <body>
-    <form id="studentForm" action="mailto:partnerships@omadiction.pro" method="post">
-      <h1>Student Enrollment Form for the Lagos OMA Diction Awards</h1>
+  <div class="container">
+    <form id="studentForm" action="https://submit-form.com/LtVR0OBLl" method="post">
+      <h1>Lagos OMA Diction Awards - Student Words Often Mispronounced Enrollment Form</h1>
+      <p class="account">Please, make a payment of ₦7,000 to the following account number: </p>
+        <p class="account">Account Name: Oma professional services</p>
+        <p class="account">Account Number: 0107068307</p>
+        <p class="account">Bank Name: GTBANK</p>
+        <p class="account last">THIS PAYMENT AND INFORMATION PROVIDED BELOW IS FOR ONE PUPIL</p>
 
         <label for="firstName">First Name of Pupil:</label>
         <input type="text" id="firstName" name="firstName" required>
@@ -47,6 +53,22 @@
         <label for="schoolWhatsapp">School WhatsApp Phone No:</label>
         <input type="text" id="schoolWhatsapp" name="schoolWhatsapp" required>
         
+        <h2>Poetry Recitation Details</h2>
+        <h3>Poetry Recitation List: (Choose one)</h3>
+        <h4>1. The vultures - David Diop</h4>
+        <h4>2. Abiku - JP Clark</h4>
+        <h4>3. The Chaos - Gerade Nolst Trinite</h4>
+        <h4>4. Yesterday - Godswill Effiong Samuel</h4>
+        <h4>5. Butterfly - Godswill Effiong Samuel</h4>
+        <h4>6. Home - Godswill Effiong Samuel</h4>
+        <h4>7. Evergreen - Godswill Effiong Samuel</h4>
+        <h4>8. Air - Abiola Matthew Olagunju</h4>
+
+        <label for="poetryRecitationChoice">Poetry Recitation Choice:</label>
+        <input type="text" id="poetryRecitationChoice" name="poetryRecitationChoice" required>
+
+        <label for="authorOfRecitation">Author Of Poetry Recitation Choice:</label>
+        <input type="text" id="authorOfRecitation" name="authorOfRecitation" required>
         <h2>Pronouncer's Release Details</h2>
 
         <label for="attendanceRelease">I release</label>
@@ -56,8 +78,15 @@
         <label for="attendanceSign">Sign:</label>
         <input type="text" id="attendanceSign" name="attendanceSign" required>
 
+        <label for="attendanceSign">Payment Receipt</label>
+        <input type="text" id="attendanceSign" name="attendanceSign" required>
+
        <label for="attendanceDate">Date:</label>
         <input type="date" id="attendanceDate" name="attendanceDate" required>
+
+        <label for="attendanceSign">Please provide your successful payment receipt before submitting the form</label>
+        <input type="hidden" id="fileInput" role="uploadcare-uploader" data-public-key="11378062eb1a73ef3dfd" name="file" accept=".jpeg, .jpg">
+
         
 
         <h4>PLEASE NOTE THAT THIS EVENT WILL BE BROADCAST LIVE ON TV, ONLINE, ON DICTION ORACLE YOUTUBE CHANNEL.</h4>
@@ -66,5 +95,6 @@
             <button type="submit">Submit</button>
         </div>
     </form>
+  </div>
 </body>
 </html>

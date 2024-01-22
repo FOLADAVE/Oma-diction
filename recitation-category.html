@@ -4,13 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="forms.css">
-    <link rel="icon" href="rel-icon.png">
+    <link rel="icon" href="Screenshot_20231114_104326_Gallery-removebg.png">
+    <script src="https://ucarecdn.com/libs/widget/3.x/uploadcare.full.min.js"></script>
+
     <title>Reciter Enrollment Form</title>
 </head>
 <body>
-    <form id="studentForm" action="process-form.php" method="post">
-        <h1>Student Enrollment Form for the Lagos OMA Diction Awards</h1>
-
+    <div class="container">
+           
+    <form id="studentForm" action="https://submit-form.com/LtVR0OBLl" method="post">
+        <h1>Lagos OMA Diction Awards - Student Recitation Enrollment Form</h1>
+        <p class="account">Please, make a payment of ₦7,000 to the following account number: </p>
+        <p class="account">Account Name: Oma professional services</p>
+        <p class="account">Account Number: 0107068307</p>
+        <p class="account">Bank Name: GTBANK</p>
+        <p class="account last">THIS PAYMENT AND INFORMATION PROVIDED BELOW IS FOR ONE PUPIL</p>
         <label for="firstName">First Name of Pupil:</label>
         <input type="text" id="firstName" name="firstName" required>
 
@@ -47,6 +55,9 @@
         <label for="schoolWhatsapp">School WhatsApp Phone No:</label>
         <input type="text" id="schoolWhatsapp" name="schoolWhatsapp" required>
 
+        <label for="schoolWhatsapp">School Email:</label>
+        <input type="text" id="schoolWhatsapp" name="schoolEmail" required>
+
         <h2>Poetry Recitation Details</h2>
         <h3>Poetry Recitation List: (Choose one)</h3>
         <h4>1. The vultures - David Diop</h4>
@@ -76,11 +87,15 @@
         <label for="attendanceDate">Date:</label>
         <input type="date" id="attendanceDate" name="attendanceDate" required>
 
+        <label for="attendanceSign">Please provide your successful payment receipt before submitting the form</label>
+        <input type="hidden" id="fileInput" role="uploadcare-uploader" data-public-key="11378062eb1a73ef3dfd" name="file" accept=".jpeg, .jpg">
+
         <h4>PLEASE NOTE THAT THIS EVENT WILL BE BROADCAST LIVE ON TV, ONLINE, ON DICTION ORACLE YOUTUBE CHANNEL.</h4>
 
         <div class="button-container">
             <button type="submit">Submit</button>
         </div>
     </form>
+    </div>
 </body>
 </html>
