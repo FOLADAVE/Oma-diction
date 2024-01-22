@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="icon" href="Screenshot_20231114_104326_Gallery-removebg.png">
-    <title>Document</title>
+    <title>OMA diction awards register</title>
     <style>
         .contact-text{
             background-color: #fff;
@@ -24,51 +24,76 @@
         }
         .regImg {
     display: flex;
-    justify-content: space-between; /* Distribute space between the image containers */
+    flex-direction: column; /* Display items vertically by default */
     align-items: center;
-    flex-wrap: wrap; /* Allow items to wrap to the next line */
+    margin-top: 20px;
 }
 
 .image-container {
-    width: 30%; /* Set the desired width for each image container */
-    text-align: center; /* Center the content within the container */
-    margin-top: 50px;
+    width: 80%;
+    text-align: center;
+    margin-top: 20px;
 }
 
 .firstImg,
 .secondImg {
-    width: 70%; /* Set the width to 100% within the image container */
-    height: auto; /* Automatically adjust height to maintain aspect ratio */
-    margin-top: 20px; /* Adjust the margin-top to reduce space between images */
-}
-.firstImg{
     width: 50%;
-    margin-bottom: 30px;
-    margin-left: 200px;
+    height: auto;
+    margin-top: 20px;
 }
-.secondImg{
-    margin-right: 200px;
+
+.firstImg {
+    margin-bottom: 20px;
+    
 }
+
+.secondImg {
+    margin-bottom: 20px;
+}
+
 .regImg button {
     background-color: #0e0149;
     border: none;
     border-radius: 5px;
-    margin-top: 10px; /* Adjust the margin between the image and the button */
+    margin-top: 10px;
+    width: 80%;
 }
-.regImg .firstBtn{
-    margin-left: 100px;
+
+.regImg .firstBtn,
+.regImg .secondBtn {
+    margin-bottom: 20px;
 }
-.regImg .secondBtn{
-    margin-bottom: 40px;
-    margin-left: -170px;
+
+/* Media query for desktop view */
+@media (min-width: 768px) {
+    .regImg {
+        flex-direction: row; /* Display items side by side on larger screens */
+        justify-content: space-between; /* Distribute space between the image containers */
+    }
+
+    .image-container {
+        width: 48%; /* Adjust the width for each image container on larger screens */
+    }
+
+    .regImg .firstBtn,
+    .regImg .secondBtn {
+        margin-bottom: 0; /* Remove margin-bottom on larger screens */
+    }
 }
-.regImg button a {
+
+.regImg .firstBtn,
+.regImg .secondBtn {
+    margin-bottom: 20px; /* Adjust margin-bottom for better spacing */
     color: #fff;
-    text-decoration: none; /* Remove underline from links */
-    font-family: cursive;
 }
 
+.firstBtn a{
+    color: #fff;
+}
 
+.secondBtn a{
+    color: #fff;
+}
 
 
     </style>
