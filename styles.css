@@ -94,7 +94,11 @@ main {
   margin-top: 50px;
 }
 
-
+.opening-text span{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 .home-page {
   display: flex;
   flex-direction: column; /* Adjust the flex direction to stack items vertically */
