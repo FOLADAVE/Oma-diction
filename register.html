@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="other.css">
+    <link rel="stylesheet" href="contact.css">
+    <link rel="preload" href="https://media.flaticon.com/dist/assets/proximanova-regular-webfont.woff2" as="font" crossorigin="" importance="high">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="icon" href="Screenshot_20231114_104326_Gallery-removebg.png">
+    <title>Document</title>
+    <style>
+        .contact-text{
+            background-color: #fff;
+        }
+        .register{
+            background-color: #fff;
+        }
+        .contact-text h4{
+            font-family: cursive;
+            color: #0e0149;
+        }
+        .regImg {
+    display: flex;
+    justify-content: space-between; /* Distribute space between the image containers */
+    align-items: center;
+    flex-wrap: wrap; /* Allow items to wrap to the next line */
+}
+
+.image-container {
+    width: 30%; /* Set the desired width for each image container */
+    text-align: center; /* Center the content within the container */
+    margin-top: 50px;
+}
+
+.firstImg,
+.secondImg {
+    width: 70%; /* Set the width to 100% within the image container */
+    height: auto; /* Automatically adjust height to maintain aspect ratio */
+    margin-top: 20px; /* Adjust the margin-top to reduce space between images */
+}
+.firstImg{
+    width: 50%;
+    margin-bottom: 30px;
+    margin-left: 200px;
+}
+.secondImg{
+    margin-right: 200px;
+}
+.regImg button {
+    background-color: #0e0149;
+    border: none;
+    border-radius: 5px;
+    margin-top: 10px; /* Adjust the margin between the image and the button */
+}
+.regImg .firstBtn{
+    margin-left: 100px;
+}
+.regImg .secondBtn{
+    margin-bottom: 40px;
+    margin-left: -170px;
+}
+.regImg button a {
+    color: #fff;
+    text-decoration: none; /* Remove underline from links */
+    font-family: cursive;
+}
+
+
+
+
+    </style>
+    <link rel="icon" href="rel-icon.png">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="Screenshot_20231114_104326_Gallery-removebg.png">
+        </div>
+        <input type="checkbox" id="nav_check" hidden>
+        <nav>
+            <div class="logo">
+                <img src="Screenshot_20231114_104326_Gallery-removebg.png" alt="">
+            </div>
+            <ul>
+                <li>
+                    <a href="index.html" class="active">Home</a>
+                </li>
+                <li>
+                    <a href="./service.html">Services</a>
+                </li>
+                <li>
+                    <a href="competition.html">Competition</a>
+                </li>
+                <li>
+                    <a href="./about.html">About</a>
+                </li>
+                <li>
+                    <a href="./contact.html">Contact</a>
+                </li>
+            </ul>
+        </nav>
+        <label for="nav_check" class="hamburger">
+            <div></div>
+            <div></div>
+            <div></div>
+        </label>
+    </header>
+   <main>
+        <div id="contact">
+            <div class="contact-text register">
+                <h4>To register, choose a category</h4>
+                <div class="regImg">
+                    <div class="image-container">
+                        <img src="speak.png" class="firstImg">
+                        <button class="firstBtn"><a href="https://omadiction.pro/recitation-category.html">Recitation</a></button>
+                    </div>
+                    <div class="image-container">
+                        <img src="communication.png" class="secondImg">
+                        <button class="secondBtn"><a href="https://omadiction.pro/words-often-mispronounced-category.html"> Words Often Mispronounced</a></button>
+                    </div>
+                </div>
+            </div>
+            
+            
+        </div>
+
+    
+   </main>
+    <footer>
+        <div class="footer-content">
+            <h3 class="h3">OMA DICTION</h3>
+            <p class="fp">At Oma Diction we teach young and old to read, write, and speak better English.</p>
+            <ul class="socials">
+                <li><a href="https://web.facebook.com/dictionandphonicsman" class="fa fa-facebook"></a></li>
+                <li><a href="https://www.youtube.com/@dictionoracle8254" class="fa fa-youtube"></a></li>
+                <li><a href="mailto:partnerships@omadiction.pro" class="fa fa-envelope"></a></li>
+            </ul>
+            <div class="footer-menu">
+                <ul class="f-menu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="service.html">Services</a></li>
+                    <li>
+                        <a href="competition.html">Competition</a>
+                    </li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© Copyright 2023 | Oma Profressional Services</p>
+        </div>
+    </footer>
+    
+</body>
+</html>
