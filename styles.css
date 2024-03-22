@@ -94,11 +94,7 @@ main {
   margin-top: 50px;
 }
 
-.opening-text span{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
+
 .home-page {
   display: flex;
   flex-direction: column; /* Adjust the flex direction to stack items vertically */
@@ -108,12 +104,13 @@ main {
   background-image: linear-gradient(45deg, rgb(226, 9, 9), #0306cc, rgb(143, 218, 248), royalblue, #3206f8, dodgerblue, rgb(2, 2, 114), navy, #09012e, #030011);
   background-size: 300% 300%;
   animation: color 12s ease-in-out infinite;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 200px; /* Adjust the height as needed */
+  height: 300px; /* Adjust the height as needed */
   margin: 0 auto; /* This centers the container horizontally */
  width: 100%; /* Add padding as needed */
+ display: flex;
+ justify-content: center;
+ text-align: center;
+ align-items: center;
 }
 #homePage .opening-text{
   color: #fff;
@@ -172,16 +169,20 @@ main {
   display: flex;
   flex-direction: column-reverse; /* Reverse the order for smaller screens */
 }
+.blockContent img{
+  width: 100%;
+}
 
+.opening-text span{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 .text {
   text-align: center; /* Center text for better readability on smaller screens */
 }
 
-.image img {
-  max-width: 100%; /* Ensure the image does not overflow its container */
-  height: auto; /* Maintain aspect ratio on smaller screens */
-  margin-top: 20px; /* Add margin for better spacing on smaller screens */
-}
+
 
 .blockContent .button,
 .text .secondBtn {
@@ -225,9 +226,7 @@ main {
     flex-direction: column; /* Switch back to column layout on smaller screens */
   }
 
-  .image img {
-    margin-top: 0; /* Remove top margin on smaller screens */
-  }
+ 
 
   .blockContent .button,
   .text .secondBtn {
@@ -235,16 +234,9 @@ main {
   }
 }
 
-.blockContent-img img {
-  max-width: 100%;
-  max-height: 100%;
-  justify-self: end;
-}
-.image img{
-  width: 95%;
-}
+
 .home-page2 {
-  background: #bed0f8c5;
+  background: #f8f7f7;  
 }
 
 .home-page2 .blueLine {
@@ -298,7 +290,7 @@ margin-top: 50px;
 .contentsInfo p{
   line-height: 1.5;
   font-size: 17px;
-  color: rgb(37, 47, 59);
+  color: #000;
   font-weight:400;
   margin-top: 40px;
 }
@@ -316,7 +308,7 @@ margin-top: 50px;
   font-size: 40px; /* Adjust font size for smaller screens */
   font-weight: 800;
   font-family: cursive;
-  color: gold;
+  color: #fff;
   line-height: 40px; /* Adjust line-height for smaller screens */
   margin: 10px auto;
   padding-top: 20px; /* Adjust padding for smaller screens */
@@ -418,10 +410,10 @@ font-family: cursive;
   font-family: cursive;
 }
 .services {
-  background-color: rgb(183, 230, 248);
+  background-color: #fff;
   display: grid;
   grid-template-columns: repeat(3,1fr);
-  border-top: 40px rgb(183, 230, 248) solid;
+  border-top: 40px #f8f7f7 solid;
   margin-top: 50px;
   gap: 20px;
 }
@@ -566,15 +558,15 @@ footer {
   margin: 0 10px;
 }
 
-.socials li a {
+.socials li a{
   text-decoration: none;
   color: #fff;
   border: 1.1px solid #fff;
   padding: 8px;
   border-radius: 50%;
-  width: 35px;
   transition: 0.5s;
   font-family: cursive;
+  display: flex;
 }
 
 .socials li a:hover {
@@ -691,7 +683,7 @@ footer {
 }
 @media only screen and (max-width: 830px){
   .image img {
-    width: 80%;
+    width: 100%;
   }
   .blockContent p{
     font-size: 15px;
