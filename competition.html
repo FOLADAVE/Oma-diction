@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="icon" href="Screenshot_20231114_104326_Gallery-removebg.png">
-    <title>OMA Diction</title>
+    <title>OMA diction awards competition</title>
     <style>
         body{
             font-family: cursive;
@@ -47,7 +47,12 @@ margin-top: 20px;
 font-weight: 700;
 transition: 0.5s;
 font-family: 700;
+border: 1px solid transparent;
         }
+    #competition a:hover{
+            color: #fff;
+        }
+        
         
         #competition button:hover{
             border: 1px solid white;
@@ -55,7 +60,7 @@ font-family: 700;
             color: #fff;
         }
     </style>
-    
+    <link rel="icon" href="rel-icon.png">
 </head>
 <body>
     <header>
@@ -110,9 +115,9 @@ font-family: 700;
             <h3 class="h3">OMA DICTION</h3>
             <p class="fp">At Oma Diction we teach young and old to read, write, and speak better English.</p>
             <ul class="socials">
-                <li><a href="https://web.facebook.com/dictionandphonicsman" class="fa fa-facebook"></a></li>
-                <li><a href="https://www.youtube.com/@dictionoracle8254" class="fa fa-youtube"></a></li>
-                <li><a href="mailto:partnerships@omadiction.pro" class="fa fa-envelope"></a></li>
+                <li><a href="https://web.facebook.com/dictionandphonicsman"><i class="fa fa-facebook"></i></a></li>
+                <li><a href="https://www.youtube.com/@dictionoracle8254"><i class="fa fa-youtube"></i></a></li>
+                <li><a href="mailto:partnerships@omadiction.pro"><i class="fa fa-envelope"></i></a></li>
             </ul>
             <div class="footer-menu">
                 <ul class="f-menu">
@@ -127,9 +132,18 @@ font-family: 700;
             </div>
         </div>
         <div class="footer-bottom">
-            <p>© Copyright 2023 | Oma Profressional Services</p>
+            <p>© Copyright <span id="year"></span> | Oma Profressional Services</p>
         </div>
     </footer>
-    
+    <script>
+        function updateYear() {
+          var now = new Date();
+          var year = now.getFullYear();
+          document.getElementById("year").textContent = year;
+        }
+        
+        // Update year every second
+        setInterval(updateYear, 1000);
+        </script>
 </body>
 </html>
