@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="other.css">
     <link rel="stylesheet" href="contact.css">
-    <link rel="preload" href="https://media.flaticon.com/dist/assets/proximanova-regular-webfont.woff2" as="font" crossorigin="" importance="high">
+    <link rel="preload" href="https://media.flaticon.com/dist/assets/proximanova-regular-webfont.woff2" as="font" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>OMA Diction</title>
@@ -109,7 +109,7 @@
             </div>
         </div>
         <div class="footer-bottom">
-            <p>© Copyright 2023 | Oma Profressional Services</p>
+            <p>© Copyright <span id="year"></span> | Oma Profressional Services</p>
         </div>
     </footer>
     <script src="https://smtpjs.com/v3/smtp.js"></script>
@@ -130,5 +130,15 @@
 
 });
     </script>
+    <script>
+function updateYear() {
+  var now = new Date();
+  var year = now.getFullYear();
+  document.getElementById("year").textContent = year;
+}
+
+// Update year every second
+setInterval(updateYear, 1000);
+</script>
 </body>
 </html>
