@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="logo (2).png">
+    <title>OMA-Invoice Edit</title>
+    <link rel="stylesheet" href="invoice-edit.css">
+</head>
+<body>
+    <header class="header">
+        <div class="logo">
+            <img src="logo (2).png" alt="OMA Professional Services Logo">
+        </div>
+        <h1 class="header-title">OMA PROFESSIONAL SERVICES</h1>
+    </header>
+    <div class="invoice-container">
+        <h2>EDIT AN INVOICE FOR SECOND TERM</h2>
+        <form id="invoiceForm" action="invoice.html" method="get">
+            <table id="invoice-table">
+                <thead>
+                    <tr>
+                        <th>Qty</th>
+                        <th>DESCRIPTION OF GOODS/CLASSES</th>
+                        <th>PRICE (N)</th>
+                        <th>UNIT TOTAL (N)</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><input type="text" value="17"></td>
+                        <td><input type="text" value="JSS 1"></td>
+                        <td><input type="text" value="5000"></td>
+                        <td><input type="text" value="85,000"></td>
+                    </tr>
+                    <tr>
+                        <td><input type="text" value="11"></td>
+                        <td><input type="text" value="JSS 2"></td>
+                        <td><input type="text" value="5000"></td>
+                        <td><input type="text" value="55,000"></td>
+                    </tr>
+                    <tr>
+                        <td><input type="text" value="11"></td>
+                        <td><input type="text" value="JSS 3"></td>
+                        <td><input type="text" value="5000"></td>
+                        <td><input type="text" value="55,000"></td>
+                    </tr>
+                    <tr>
+                        <td><input type="text" value="8"></td>
+                        <td><input type="text" value="SSS 1"></td>
+                        <td><input type="text" value="5000"></td>
+                        <td><input type="text" value="40,000"></td>
+                    </tr>
+                    <tr>
+                        <td><input type="text" value="3"></td>
+                        <td><input type="text" value="SSS 2"></td>
+                        <td><input type="text" value="5000"></td>
+                        <td><input type="text" value="15,000"></td>
+                        <td><button class="remove-row"  type="button" onclick="removeRow(this)">X</button></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <button class="add-row" id="add-row-btn" type="button" onclick="addRow()">Add Row</button>
+
+            <p class="payment-info">
+                PLEASE PAY INTO OMA PROFESSIONAL SERVICES,
+                <input type="text" value="0107968307"> GTB
+            </p>
+
+            <div class="total-amount">
+                <p>Total: ₦<input type="text" value="250,000"></p>
+                <p>Amount in words: <input type="text" value="Two hundred and fifty thousand naira only."></p>
+            </div>
+
+            <p class="disclaimer">
+                For Oma Professional Services. Goods sold in good condition are not refundable.
+            </p>
+
+            <div class="customer-details">
+                <p>Customer’s name: <input type="text" id="customerName" value="KAZTAL ACADEMY SECONDARY SCHOOL"></p>
+                <p>Date: <input type="text" id="invoiceDate" value="25/04/2024"></p>
+            </div>
+
+            <!-- Hidden inputs to pass data to invoice.html -->
+            <input type="hidden" name="customerName" id="hiddenCustomerName" value="">
+            <input type="hidden" name="invoiceDate" id="hiddenInvoiceDate" value="">
+            <input type="hidden" name="invoiceData" id="invoiceData" value="">
+
+            <!-- Submit button for the form -->
+            <button class="submit" type="submit">Submit</button>
+        </form>
+    </div>
+
+    <script>
+        function addRow() {
+            var tableBody = document.querySelector('table tbody');
+            var lastRow = tableBody.lastElementChild.cloneNode(true);
+
+            lastRow.querySelectorAll('input[type="text"]').forEach(input => {
+                input.value = '';
+            });
+
+            tableBody.appendChild(lastRow);
+        }
+        function removeRow(button) {
+            var row = button.parentNode.parentNode;
+            row.parentNode.removeChild(row);
+        }
+
+        document.getElementById('invoiceForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent default form submission
+
+            // Set the hidden input values before submitting the form
+            document.getElementById('hiddenCustomerName').value = document.getElementById('customerName').value;
+            document.getElementById('hiddenInvoiceDate').value = document.getElementById('invoiceDate').value;
+
+            // Serialize and set the invoice data as JSON string
+            var invoiceData = JSON.stringify(getInvoiceData());
+            document.getElementById('invoiceData').value = invoiceData;
+
+            // Submit the form
+            this.submit();
+        });
+
+        function getInvoiceData() {
+            var tableRows = document.querySelectorAll('table tbody tr');
+            var data = [];
+
+            tableRows.forEach(row => {
+                var rowData = {
+                    qty: row.cells[0].querySelector('input').value,
+                    description: row.cells[1].querySelector('input').value,
+                    price: row.cells[2].querySelector('input').value,
+                    unitTotal: row.cells[3].querySelector('input').value
+                };
+                data.push(rowData);
+            });
+
+            return data;
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,118 @@
+body {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    background-color: #f8f8f8;
+    padding: 20px;
+}
+.header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
+header .header-title{
+    color: tomato;
+}
+.logo img {
+    width: 80px; /* Adjust the width as needed */
+    height: auto;
+    margin-right: 10px;
+    margin-top: 10px;
+}
+
+.header-title {
+    font-size: 24px;
+    color: #333;
+    display: flex;
+    text-align: center;
+    align-items: center;
+}
+
+.invoice-container {
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    text-align: center;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+table, th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: center;
+}
+
+input[type="text"] {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 4px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.payment-info, .total-amount, .disclaimer, .customer-details {
+    margin-bottom: 20px;
+}
+
+/* Button styles */
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-weight: 500;
+}
+
+button.add-row {
+    background-color: #4caf50;
+    color: #fff;
+    transition: 0.5s;
+}
+
+button.add-row:hover {
+    background-color: #45a049;
+    transform: scale(1.05);
+}
+
+button.remove-row {
+    background-color: #f44336;
+    color: #fff;
+}
+
+button.remove-row:hover {
+    background-color: #d32f2f;
+}
+.submit{
+    background-color:rgb(86, 139, 236);
+    width: 200px;
+    color: #fff;
+    transition: 0.5s;
+}
+.submit:hover{
+    transform: scale(1.05);
+}
+@media (max-width: 600px) {
+    .remove-row {
+        font-size: 14px; /* Adjust font size for smaller screens */
+        padding: 6px 10px; /* Adjust padding for smaller screens */
+    }
+}
+@media (max-width: 412px) {
+    .remove-row {
+        font-size: 12px; /* Further reduce font size for narrower screens */
+        padding: 4px 8px; /* Further adjust padding for narrower screens */
+    }
+}
