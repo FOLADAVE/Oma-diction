@@ -110,9 +110,15 @@ button.remove-row:hover {
         padding: 6px 10px; /* Adjust padding for smaller screens */
     }
 }
-@media (max-width: 412px) {
-    .remove-row {
-        font-size: 12px; /* Further reduce font size for narrower screens */
-        padding: 4px 8px; /* Further adjust padding for narrower screens */
+/* Media query for screens up to 500px */
+@media (max-width: 500px) {
+    /* Hide the Action column header */
+    table th:nth-child(5) {
+        display: none;
+    }
+
+    /* Hide the Action column cells */
+    table td:nth-child(5) {
+        display: none;
     }
 }
