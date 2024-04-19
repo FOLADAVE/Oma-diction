@@ -4,134 +4,108 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="logo (2).png">
-    <title>OMA-Invoice</title>
-    <link rel="stylesheet" href="invoice.css">
+    <title>View Edited Invoice</title>
+    <style>
+        body {
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            padding: 20px;
+        }
+        .invoice-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: #f9f9f9;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+        }
+        h1 {
+            text-align: center;
+            font-weight: 700;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: center;
+        }
+    </style>
 </head>
 <body>
-    <header class="header">
-        <div class="logo">
-            <!-- Replace 'logo.png' with your actual logo file -->
-            <img src="logo (2).png" alt="OMA Professional Services Logo">
-        </div>
-        <h1 class="header-title">OMA PROFESSIONAL SERVICES</h1>
-    </header>
     <div class="invoice-container">
-        <h2>EDIT AN INVOICE FOR SECOND TERM</h2>
-        <table>
+        <h1>Display Edited Invoice</h1>
+        
+        <table id="invoice-table">
             <thead>
                 <tr>
                     <th>Qty</th>
-                    <th>DESCRIPTION OF GOODS/CLASSES</th>
-                    <th>PRICE (N)</th>
-                    <th>UNIT TOTAL (N)</th>
+                    <th>Description</th>
+                    <th>Price (N)</th>
+                    <th>Unit Total (N)</th>
                 </tr>
             </thead>
-            <tbody>
-                <tr>
-                    <td><input type="text" value="17"></td>
-                    <td><input type="text" value="JSS 1"></td>
-                    <td><input type="text" value="5000"></td>
-                    <td><input type="text" value="85,000"></td>
-                </tr>
-                <tr>
-                    <td><input type="text" value="11"></td>
-                    <td><input type="text" value="JSS 2"></td>
-                    <td><input type="text" value="5000"></td>
-                    <td><input type="text" value="55,000"></td>
-                </tr>
-                <tr>
-                    <td><input type="text" value="11"></td>
-                    <td><input type="text" value="JSS 3"></td>
-                    <td><input type="text" value="5000"></td>
-                    <td><input type="text" value="55,000"></td>
-                </tr>
-                <tr>
-                    <td><input type="text" value="8"></td>
-                    <td><input type="text" value="SSS 1"></td>
-                    <td><input type="text" value="5000"></td>
-                    <td><input type="text" value="40,000"></td>
-                </tr>
-                <tr>
-                    <td><input type="text" value="3"></td>
-                    <td><input type="text" value="SSS 2"></td>
-                    <td><input type="text" value="5000"></td>
-                    <td><input type="text" value="15,000"></td>
-                    <td><button class="remove-row"  type="button" onclick="removeRow(this)">X</button></td>
-                </tr>
-                
-                <!-- Add more rows with input fields for other items -->
+            <tbody id="invoice-details">
+                <!-- Invoice data will be populated dynamically here -->
             </tbody>
         </table>
-        <button class="add-row" id="add-row-btn" onclick="addRow()">Add Row</button>
 
-        <p class="payment-info">
-            PLEASE PAY INTO OMA PROFESSIONAL SERVICES,
-            <input type="text" value="0107968307"> GTB
-        </p>
-
-        <div class="total-amount">
-            <p>Total: ₦<input type="text" value="250,000"></p>
-            <p>Amount in words: <input type="text" value="Two hundred and fifty thousand naira only."></p>
+        <div id="total-amount">
+            <p>Total: <span id="total-value">₦0</span></p>
+            <p>Amount in words: <span id="amount-words">-</span></p>
         </div>
 
-        <p class="disclaimer">
-            For Oma Professional Services. Goods sold in good condition are not refundable.
-        </p>
-
-        <div class="customer-details">
-            <p>Customer’s name: <input type="text" value="KAZTAL ACADEMY SECONDARY SCHOOL"></p>
-            <p>Date: <input type="text" value="25/04/2023"></p>
+        <div id="customer-details">
+            <p>Customer's Name: <span id="customer-name">-</span></p>
+            <p>Date: <span id="invoice-date">-</span></p>
         </div>
     </div>
+
     <script>
-        let rowNum = 1;
+        const urlParams = new URLSearchParams(window.location.search);
+        const invoiceData = urlParams.get('invoiceData');
 
-// Function to add a new row to the table
-function addRow() {
-    const table = document.getElementById('invoice-table').getElementsByTagName('tbody')[0];
-    const newRow = table.insertRow();
+        if (invoiceData) {
+            displayInvoice(JSON.parse(invoiceData));
+        } else {
+            document.getElementById('invoice-details').innerHTML = '<tr><td colspan="4">No edited invoice found.</td></tr>';
+        }
 
-    newRow.innerHTML = `
-        <td><input type="text" value=""></td>
-        <td><input type="text" value=""></td>
-        <td><input type="text" value=""></td>
-        <td><input type="text" value=""></td>
-        <td><button type="button" onclick="removeRow(this)">Remove</button></td>
-    `;
-    rowNum++;
-}
+        function displayInvoice(data) {
+            const invoiceTable = document.getElementById('invoice-details');
+            let totalAmount = 0;
 
-// Function to remove a row from the table
-function removeRow(button) {
-    const row = button.parentNode.parentNode;
-    row.parentNode.removeChild(row);
-}
+            data.forEach(item => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>${item.qty}</td>
+                    <td>${item.description}</td>
+                    <td>${item.price}</td>
+                    <td>${item.unitTotal}</td>
+                `;
+                invoiceTable.appendChild(row);
 
-    </script>
-    <script>
-        function removeRow(button) {
-    // Traverse up the DOM to find the parent row element
-    var row = button.parentNode.parentNode;
+                // Calculate total amount (remove commas and convert to number)
+                totalAmount += parseFloat(item.unitTotal.replace(/,/g, ''));
+            });
 
-    // Remove the row from the table
-    row.parentNode.removeChild(row);
-}
-function addRow() {
-    // Get the table body element
-    var tableBody = document.querySelector('table tbody');
+            // Display total amount
+            document.getElementById('total-value').textContent = `₦${totalAmount.toLocaleString()}`;
 
-    // Clone the last row in the table (assuming it's a template row)
-    var lastRow = tableBody.lastElementChild.cloneNode(true);
+            // Display amount in words
+            document.getElementById('amount-words').textContent = convertAmountToWords(totalAmount);
 
-    // Clear input values in the cloned row (optional)
-    lastRow.querySelectorAll('input[type="text"]').forEach(input => {
-        input.value = '';
-    });
+            // Display customer name and date
+            document.getElementById('customer-name').textContent = urlParams.get('customerName') || '-';
+            document.getElementById('invoice-date').textContent = urlParams.get('invoiceDate') || '-';
+        }
 
-    // Append the cloned row to the table
-    tableBody.appendChild(lastRow);
-}
-
+        function convertAmountToWords(amount) {
+            // Function to convert amount to words (implement your logic here)
+            return `${amount.toLocaleString()} naira only`;
+        }
     </script>
 </body>
 </html>
