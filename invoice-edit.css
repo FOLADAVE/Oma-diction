@@ -26,7 +26,10 @@ header .header-title{
     text-align: center;
     align-items: center;
 }
-
+.heading{
+    text-align: center;
+    font-weight: 600;
+}
 .invoice-container {
     max-width: 800px;
     margin: 0 auto;
@@ -60,6 +63,7 @@ input[type="text"] {
     border-radius: 4px;
     font-size: 14px;
 }
+
 
 .payment-info, .total-amount, .disclaimer, .customer-details {
     margin-bottom: 20px;
@@ -120,5 +124,12 @@ button.remove-row:hover {
     /* Hide the Action column cells */
     table td:nth-child(5) {
         display: none;
+    }
+}
+
+@media (max-width: 412px) {
+    .remove-row {
+        font-size: 12px; /* Further reduce font size for narrower screens */
+        padding: 4px 8px; /* Further adjust padding for narrower screens */
     }
 }
