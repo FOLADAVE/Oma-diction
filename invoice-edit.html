@@ -6,6 +6,8 @@
     <link rel="icon" href="logo (2).png">
     <title>OMA-Invoice Edit</title>
     <link rel="stylesheet" href="invoice-edit.css">
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.56/pdfmake.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.56/vfs_fonts.js"></script>
 </head>
 <body>
     <header class="header">
@@ -15,8 +17,8 @@
         <h1 class="header-title">OMA PROFESSIONAL SERVICES</h1>
     </header>
     <div class="invoice-container">
-        <input class="heading" type="text" placeholder="INVOICE FOR 3RD TERM">
-        <form id="invoiceForm" action="invoice.html" method="get">
+        <input class="heading" type="text" placeholder="EDIT AN INVOICE FOR 3RD TERM">
+        <form id="invoiceForm" action="#" method="get">
             <table id="invoice-table">
                 <thead>
                     <tr>
@@ -89,7 +91,7 @@
             <input type="hidden" name="invoiceData" id="invoiceData" value="">
 
             <!-- Submit button for the form -->
-            <button class="submit" type="submit">Submit</button>
+            <button class="submit" onclick="generatePDF()">Submit</button>
         </form>
     </div>
 
@@ -104,37 +106,78 @@
 
             tableBody.appendChild(lastRow);
         }
+
         function removeRow(button) {
             var row = button.parentNode.parentNode;
             row.parentNode.removeChild(row);
         }
 
-        document.getElementById('invoiceForm').addEventListener('submit', function(event) {
-            event.preventDefault(); // Prevent default form submission
+        function generatePDF() {
+    // Encode logo image to base64
+    var logo = document.querySelector('.logo img');
+    var canvas = document.createElement('canvas');
+    var ctx = canvas.getContext('2d');
+    canvas.width = logo.width;
+    canvas.height = logo.height;
+    ctx.drawImage(logo, 0, 0, logo.width, logo.height);
+    var logoBase64 = canvas.toDataURL('image/png');
 
-            // Set the hidden input values before submitting the form
-            document.getElementById('hiddenCustomerName').value = document.getElementById('customerName').value;
-            document.getElementById('hiddenInvoiceDate').value = document.getElementById('invoiceDate').value;
+    var docDefinition = {
+        content: [
+            // Include logo
+            {
+                image: logoBase64,
+                width: 100 // Adjust width as needed
+            },
+            { text: 'OMA Professional Services Invoice', style: 'header' },
+            { text: 'Customer’s name: ' + document.getElementById('customerName').value },
+            { text: 'Date: ' + document.getElementById('invoiceDate').value },
+            { text: 'Invoice Details', style: 'subheader' },
+            {
+                table: {
+                    body: getInvoiceData()
+                }
+            },
+            { text: 'Payment Information', style: 'subheader' },
+            {
+                ul: [
+                    'Please pay into OMA PROFESSIONAL SERVICES',
+                    'Account Number: ' + document.querySelector('.payment-info input').value + ' GTB'
+                ]
+            },
+            { text: 'Total Amount: ₦' + document.querySelector('.total-amount input').value },
+            { text: 'Amount in words: ' + document.querySelectorAll('.total-amount input')[1].value },
+            { text: 'Disclaimer', style: 'subheader' },
+            'For Oma Professional Services. Goods sold in good condition are not refundable.'
+        ],
+        styles: {
+            header: {
+                fontSize: 18,
+                bold: true,
+                margin: [0, 0, 0, 10]
+            },
+            subheader: {
+                fontSize: 16,
+                bold: true,
+                margin: [0, 10, 0, 5]
+            }
+        }
+    };
+    pdfMake.createPdf(docDefinition).download('oma-invoice.pdf');
+}
 
-            // Serialize and set the invoice data as JSON string
-            var invoiceData = JSON.stringify(getInvoiceData());
-            document.getElementById('invoiceData').value = invoiceData;
-
-            // Submit the form
-            this.submit();
-        });
 
         function getInvoiceData() {
             var tableRows = document.querySelectorAll('table tbody tr');
             var data = [];
 
             tableRows.forEach(row => {
-                var rowData = {
-                    qty: row.cells[0].querySelector('input').value,
-                    description: row.cells[1].querySelector('input').value,
-                    price: row.cells[2].querySelector('input').value,
-                    unitTotal: row.cells[3].querySelector('input').value
-                };
+                var rowData = [
+                    row.cells[0].querySelector('input').value,
+                    row.cells[1].querySelector('input').value,
+                    '₦' + row.cells[2].querySelector('input').value,
+                    '₦' + row.cells[3].querySelector('input').value
+                ];
                 data.push(rowData);
             });
 
