@@ -113,76 +113,104 @@
         }
 
         function generatePDF() {
-            // Encode logo image to base64
-            var logo = document.querySelector('.logo img');
-            var canvas = document.createElement('canvas');
-            var ctx = canvas.getContext('2d');
-            canvas.width = logo.width;
-            canvas.height = logo.height;
-            ctx.drawImage(logo, 0, 0, logo.width, logo.height);
-            var logoBase64 = canvas.toDataURL('image/png');
+    // Encode logo image to base64
+    var logo = document.querySelector('.logo img');
+    var canvas = document.createElement('canvas');
+    var ctx = canvas.getContext('2d');
+    canvas.width = logo.width;
+    canvas.height = logo.height;
+    ctx.drawImage(logo, 0, 0, logo.width, logo.height);
+    var logoBase64 = canvas.toDataURL('image/png');
 
-            var docDefinition = {
-                content: [
-                    // Include logo
-                    {
-                        image: logoBase64,
-                        width: 80, // Adjust width as needed
-                        alignment: 'center',
-                        margin: [0, 0, 0, 0]
-                    },
-                    { text: 'OMA Professional Services Invoice', style: 'header', alignment: 'center', margin: [0, 0, 0, 30] },
-                    { text: 'Customer’s name: ' + document.getElementById('customerName').value, alignment: 'center', // Align center
- },
-                    { text: 'Date: ' + document.getElementById('invoiceDate').value, alignment: 'center', // Align center
-         },
-                    {
-            text: 'Invoice Details',
-            style: 'subheader',
-            alignment: 'center', // Align center
-            margin: [0, 20, 0, 20] // Add margin to the top and bottom
-        },
-        { alignment: 'center',
-            table: {
-                body: getInvoiceData(),// Style for the table cells
-                alignment: 'center', // Align the table to the center
-                margin: [0, 40, 0, 0] // Add margin to the top and bottom
-            }
-        },
-
-                    { text: 'Payment Information', style: 'subheader' },
-                    {
-                        ul: [
-                            'Please pay into OMA PROFESSIONAL SERVICES',
-                            'Account Number: ' + document.querySelector('.payment-info input').value + ' GTB', 
-                        ]
-                    },
-                    { text: 'Total Amount: ₦' + document.querySelector('.total-amount input').value, },
-                    { text: 'Amount in words: ' + document.querySelectorAll('.total-amount input')[1].value },
-                    { text: 'Disclaimer', style: 'subheader' },
-                    'For Oma Professional Services. Goods sold in good condition are not refundable.'
+    var docDefinition = {
+        content: [
+            // Include logo
+            {
+                image: logoBase64,
+                width: 100, // Adjust width as needed
+                alignment: 'center',
+                margin: [0, 20] // Add margin top
+            },
+            { 
+                text: 'OMA Professional Services Invoice', 
+                style: 'header', 
+                alignment: 'center' 
+            },
+            { 
+                text: 'Customer’s name: ' + document.getElementById('customerName').value, 
+                alignment: 'center' 
+            },
+            { 
+                text: 'Date: ' + document.getElementById('invoiceDate').value, 
+                alignment: 'center' 
+            },
+            { 
+                text: 'Invoice Details', 
+                style: 'subheader', 
+                alignment: 'center' 
+            },
+            {
+                table: {
+                    headerRows: 1, // Add header row
+                    widths: ['auto', '*', 'auto', 'auto'], // Adjust column widths as needed
+                    body: [
+                        [
+                            { text: 'Qty', bold: true, alignment: 'center' },
+                            { text: 'Description', bold: true, alignment: 'center' },
+                            { text: 'Price (₦)', bold: true, alignment: 'center' },
+                            { text: 'Unit Total (₦)', bold: true, alignment: 'center' }
+                        ],
+                        ...getInvoiceData() // Add table data
+                    ]
+                },
+                layout: 'lightHorizontalLines' // Add horizontal lines between rows
+            },
+            { 
+                text: 'Payment Information', 
+                style: 'subheader', 
+                alignment: 'center' 
+            },
+            {
+                ul: [
+                    { text: 'Please pay into OMA PROFESSIONAL SERVICES', margin: [0, 5] }, // Add margin
+                    { text: 'Account Number: ' + document.querySelector('.payment-info input').value + ' GTB', margin: [0, 5] } // Add margin
                 ],
-                styles: {
-                    header: {
-                        fontSize: 24,
-                        bold: true,
-                        color: 'tomato',
-                        alignment: 'center',
-                        margin: [0, 0, 0, 20]
-                    },
-                    subheader: {
-                        fontSize: 18,
-                        bold: true,
-                        margin: [0, 10, 0, 5],
-                        alignment: 'center',
-                        
-                    }
-                }
-            };
-            pdfMake.createPdf(docDefinition).download('oma-invoice.pdf');
+                alignment: 'center' // Align list to the center
+            },
+            { 
+                text: 'Total Amount: ₦' + document.querySelector('.total-amount input').value, 
+                alignment: 'center' 
+            },
+            { 
+                text: 'Amount in words: ' + document.querySelectorAll('.total-amount input')[1].value, 
+                alignment: 'center' 
+            },
+            { 
+                text: 'Disclaimer', 
+                style: 'subheader', 
+                alignment: 'center' 
+            },
+            {
+                text: 'For Oma Professional Services. Goods sold in good condition are not refundable.', 
+                alignment: 'center' 
+            }
+        ],
+        styles: {
+            header: {
+                fontSize: 24,
+                bold: true,
+                color: 'tomato',
+                margin: [0, 0, 0, 20]
+            },
+            subheader: {
+                fontSize: 18,
+                bold: true,
+                margin: [0, 10, 0, 5]
+            }
         }
-
-
+    };
+    pdfMake.createPdf(docDefinition).download('oma-invoice.pdf');
+}
 
 
         function getInvoiceData() {
